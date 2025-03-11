@@ -13,9 +13,7 @@ COPY package*.json ./
 # Install dependencies dengan Prisma
 RUN npm install --legacy-peer-deps
 
-ENV NODE_ENV=production
 ENV PRISMA_GENERATE=true
-COPY .env .env
 
 # Copy semua file proyek ke dalam container
 COPY . .
