@@ -28,4 +28,4 @@ RUN npm run build
 EXPOSE 3001
 
 # Jalankan Prisma Migrate dan Start aplikasi
-CMD ["sh", "-c", "npm run start"]
+CMD ["sh", "-c", "npm run start -- -p 3001"]
