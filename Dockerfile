@@ -1,14 +1,16 @@
 # Gunakan Node.js Alpine sebagai base image
 FROM node:18-alpine
 
+# Tambahkan dependencies yang diperlukan
 RUN apk add --no-cache openssl
+
 # Atur working directory
 WORKDIR /app
 
-# Copy package.json dan package-lock.json
+# Copy package.json dan package-lock.json terlebih dahulu
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies dengan Prisma
 RUN npm install --legacy-peer-deps
 
 # Copy semua file proyek ke dalam container
@@ -20,8 +22,8 @@ RUN npx prisma generate
 # Build Next.js
 RUN npm run build
 
-# Ekspos port 3001
-EXPOSE 3001
+# Ekspos port aplikasi
+EXPOSE 3000
 
-# Jalankan aplikasi
-CMD ["npm", "run", "start"]
+# Jalankan Prisma Migrate dan Start aplikasi
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run start"]
