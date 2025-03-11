@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  portfolio:
+  airbnb-clone:
     container_name: airbnb-clone
     image: airbnb-clone
     build: .
