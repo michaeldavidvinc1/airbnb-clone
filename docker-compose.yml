@@ -12,4 +12,6 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=production
+    env_file:
+      - .env
     restart: always
