@@ -1,6 +1,7 @@
 # Gunakan Node.js Alpine sebagai base image
 FROM node:18-alpine
 
+RUN apk add --no-cache openssl
 # Atur working directory
 WORKDIR /app
 
