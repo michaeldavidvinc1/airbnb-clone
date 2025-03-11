@@ -10,9 +10,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    env_file:  
-      - .env
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=mongodb+srv://michaeldavidvinc3006:bmKa4giM2fRgdmXj@cluster0.uxhtc.mongodb.net/airbnb?retryWrites=true&w=majority
     restart: always
