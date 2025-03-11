@@ -1,5 +1,5 @@
 # Gunakan Node.js Alpine sebagai base image
-FROM node:22.14-alpine
+FROM node:18-alpine
 
 # Atur working directory
 WORKDIR /app
