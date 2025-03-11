@@ -1,9 +1,6 @@
 # Gunakan Node.js Alpine sebagai base image
 FROM node:22.14-alpine
 
-# Install libssl 1.1 agar Prisma bisa jalan
-RUN apk add --no-cache openssl1.1-compat
-
 # Atur working directory
 WORKDIR /app
 
