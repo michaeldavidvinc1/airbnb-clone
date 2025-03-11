@@ -19,7 +19,7 @@ ENV PRISMA_GENERATE=true
 COPY . .
 
 # Generate Prisma Client
-RUN npx prisma generate
+RUN npx prisma db push
 
 # Build Next.js
 RUN npm run build
@@ -28,4 +28,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Jalankan Prisma Migrate dan Start aplikasi
-CMD ["sh", "-c", "npx prisma migrate deploy && npm run start"]
+CMD ["sh", "-c", "npm run start"]
