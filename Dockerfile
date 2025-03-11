@@ -25,7 +25,7 @@ RUN npx prisma db push
 RUN npm run build
 
 # Ekspos port aplikasi
-EXPOSE 3000
+EXPOSE 3001
 
 # Jalankan Prisma Migrate dan Start aplikasi
 CMD ["sh", "-c", "npm run start"]
