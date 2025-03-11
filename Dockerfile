@@ -1,10 +1,10 @@
-# Gunakan Node.js sebagai base image
+# Gunakan Node.js Alpine sebagai base image
 FROM node:22.14-alpine
 
 # Atur working directory
 WORKDIR /app
 
-# Copy package.json dan package-lock.json (jika ada)
+# Copy package.json dan package-lock.json
 COPY package*.json ./
 
 # Install dependencies
@@ -13,11 +13,14 @@ RUN npm install --legacy-peer-deps
 # Copy semua file proyek ke dalam container
 COPY . .
 
-# Build Next.js (opsional jika ingin build di container)
+# Generate Prisma Client
+RUN npx prisma generate
+
+# Build Next.js
 RUN npm run build
 
-# Jalankan aplikasi di port 3000
-EXPOSE 3001
+# Ekspos port 3000
+EXPOSE 3000
 
-# Jalankan perintah start
+# Jalankan aplikasi
 CMD ["npm", "run", "start"]
